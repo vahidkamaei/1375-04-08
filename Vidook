@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم ثبت‌نام فروشنده حقیقی</title>
+    <style>
+        body { font-family: Arial, sans-serif; direction: rtl; background-color: #f9f9f9; }
+        .form-container { width: 80%; margin: auto; border: 1px solid #000; padding: 20px; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 5px; margin-bottom: 10px; }
+        .file-upload { margin-bottom: 10px; }
+        .submit-btn { background-color: #28a745; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        .submit-btn:hover { background-color: #218838; }
+    </style>
+    <script>
+        function sendToWhatsApp() {
+            let name = document.getElementById("name").value;
+            let birthDate = document.getElementById("birthDate").value;
+            let birthPlace = document.getElementById("birthPlace").value;
+            let nationalID = document.getElementById("nationalID").value;
+            let mobile = document.getElementById("mobile").value;
+            let email = document.getElementById("email").value;
+            let shopName = document.getElementById("shopName").value;
+            let shopAddress = document.getElementById("shopAddress").value;
+
+            let message = `نام: ${name}\nتاریخ تولد: ${birthDate}\nمحل تولد: ${birthPlace}\nکد ملی: ${nationalID}\nشماره موبایل: ${mobile}\nایمیل: ${email}\nنام فروشگاه: ${shopName}\nآدرس فروشگاه: ${shopAddress}`;
+
+            let whatsappUrl = `https://wa.me/message/IOTE3ROIZVH3N1?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>فرم ثبت‌نام فروشنده حقیقی</h2>
+        <label>نام و نام خانوادگی:</label> <input type="text" id="name">
+        <label>تاریخ تولد:</label> <input type="date" id="birthDate">
+        <label>محل تولد:</label> <input type="text" id="birthPlace">
+        <label>کد ملی:</label> <input type="text" id="nationalID">
+        <label>شماره موبایل:</label> <input type="text" id="mobile">
+        <label>ایمیل:</label> <input type="email" id="email">
+        
+        <h3>مشخصات فروشگاه</h3>
+        <label>نام فروشگاه:</label> <input type="text" id="shopName">
+        <label>آدرس فروشگاه:</label> <input type="text" id="shopAddress">
+        
+        <h3>مدارک مورد نیاز</h3>
+        <label>تصویر کارت ملی:</label> <input type="file" class="file-upload">
+        <label>جواز کسب:</label> <input type="file" class="file-upload">
+        <label>عکس صفحات شناسنامه:</label> <input type="file" class="file-upload">
+        
+        <button class="submit-btn" onclick="sendToWhatsApp()">ارسال اطلاعات به واتس‌اپ بیزینس</button>
+    </div>
+</body>
+</html>
